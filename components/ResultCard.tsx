@@ -1,5 +1,6 @@
 import React from 'react';
 import type { TrackingInfo } from '../types';
+import CarrierLogo from './CarrierLogo';
 
 interface ResultCardProps {
   result: TrackingInfo & { number: string };
@@ -10,8 +11,15 @@ interface ResultCardProps {
 const ResultCard: React.FC<ResultCardProps> = ({ result, onSave, isSaved }) => {
   return (
     <div className="w-full max-w-lg bg-gray-50 border border-gray-200 rounded-lg shadow-md p-6 text-left animate-fade-in">
-      <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Transportista Detectado</h3>
-      <p className="text-2xl font-bold text-black mt-1">{result.carrier}</p>
+      <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Transportista Detectado</h3>
+      
+      {/* Logo and Name Row */}
+      <div className="flex items-center gap-4 mb-5">
+        <div className="flex-shrink-0 bg-white p-2 rounded border border-gray-100 shadow-sm">
+          <CarrierLogo carrier={result.carrier} className="h-10 w-auto max-w-[120px]" />
+        </div>
+        <p className="text-2xl font-bold text-black">{result.carrier}</p>
+      </div>
       
       <div className="mt-4 bg-gray-100 p-3 rounded-md">
         <p className="text-sm text-gray-600">Número de seguimiento:</p>
