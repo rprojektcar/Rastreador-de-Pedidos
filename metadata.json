@@ -1,0 +1,5 @@
+{
+  "name": "Rastreador de Pedidos",
+  "description": "Una aplicación web para rastrear los números de pedido de los clientes de R_PROJEKT, identificando al transportista correcto y proporcionando un enlace de seguimiento directo.",
+  "requestFramePermissions": []
+}
