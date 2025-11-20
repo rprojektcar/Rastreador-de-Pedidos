@@ -4,7 +4,6 @@ import TrackingInput from './components/TrackingInput';
 import ResultCard from './components/ResultCard';
 import Spinner from './components/Spinner';
 import History from './components/History';
-import ChatWidget from './components/ChatWidget';
 import { getTrackingInfo } from './services/geminiService';
 import type { TrackingInfo, HistoryEntry } from './types';
 
@@ -97,9 +96,9 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-white p-4 md:p-8 relative">
+    <div className="flex flex-col items-center bg-white p-4 md:p-8 relative">
       <Header />
-      <main className="w-full max-w-2xl mt-12 md:mt-16 flex flex-col items-center text-center">
+      <main className="w-full max-w-2xl mt-4 md:mt-8 flex flex-col items-center text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-black mb-2">
           Rastrea tu Pedido
         </h2>
@@ -114,7 +113,7 @@ const App: React.FC = () => {
           isLoading={isLoading}
         />
 
-        <div className="mt-8 w-full min-h-[150px]">
+        <div className="mt-8 w-full min-h-[50px]">
           {isLoading && <Spinner />}
           {error && <p className="text-red-600 bg-red-100 border border-red-300 rounded-lg p-4">{error}</p>}
           {result && (
@@ -128,12 +127,6 @@ const App: React.FC = () => {
 
         {history.length > 0 && <History entries={history} onClear={handleClearHistory} />}
       </main>
-      <footer className="mt-auto pt-8 text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} R_PROJEKT. Todos los derechos reservados.
-      </footer>
-      
-      {/* Chatbot Widget */}
-      <ChatWidget />
     </div>
   );
 };
